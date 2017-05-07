@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalcClass
 {
-    public class MathLibrary
+    public static class MathLibrary
     {
         private static string _lastError = "";
         public static string lastError
