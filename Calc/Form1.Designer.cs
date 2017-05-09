@@ -249,6 +249,7 @@
             this.ChangeSign.TabIndex = 21;
             this.ChangeSign.Text = "-/+";
             this.ChangeSign.UseVisualStyleBackColor = true;
+            this.ChangeSign.Click += new System.EventHandler(this.ChangeSign_Click);
             // 
             // B0
             // 

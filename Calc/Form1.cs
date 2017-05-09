@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace Calc
     public partial class Form1 : Form
     {
         public int number;
+        private Stopwatch _timer = new Stopwatch();
+        private string _checkExp;
 
         public Form1()
         {
@@ -81,6 +84,50 @@ namespace Calc
         {
             if (e.KeyCode == Keys.Enter)
                 Calculate.PerformClick();
+        }
+
+        private void ChangeSign_Click(object sender, EventArgs e)
+        {
+            if (!_timer.IsRunning)
+            {
+                _timer = Stopwatch.StartNew();
+
+            }
+            else
+            {
+                _timer.Stop();
+                if (_timer.Elapsed.Seconds > 3)
+                {
+                    _timer.Reset();
+                    _timer = Stopwatch.StartNew();
+                    return;
+                }
+            }
+            if (Expression.Text[Expression.Text.Length - 1] == 'm')
+            {
+                Expression.Text = Expression.Text.Remove(Expression.Text.Length - 1, 1);
+                Expression.Text += 'p';
+            }
+            else
+            {
+                if (Expression.Text[Expression.Text.Length - 1] == 'p')
+                {
+                    Expression.Text = Expression.Text.Remove(Expression.Text.Length - 1, 1);
+                    Expression.Text += 'm';
+                }
+                else
+                {
+                    if (Expression.Text == "0")
+                    {
+                        Expression.Text = "m";
+                    }
+                    else
+                    {
+                        Expression.Text += "m";
+                    }
+                }
+            }
+            _checkExp = Expression.Text;
         }
     }
 }
