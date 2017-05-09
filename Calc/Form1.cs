@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AnalyzerClass;
+using CalcClass;
 
 namespace Calc
 {
@@ -71,8 +73,8 @@ namespace Calc
 
         private void Calculate_Click(object sender, EventArgs e)
         {
-            //Analyzer.Expression = Expression.Text;
-            //Result.Text = Analyzer.Estimate();
+            Analyzer.Expression = Expression.Text;
+            Result.Text = Analyzer.Estimate();
         }
 
         private void Calculator_KeyDown(object sender, KeyEventArgs e)
