@@ -22,6 +22,12 @@ namespace Calc
         public Form1()
         {
             InitializeComponent();
+            if (Environment.GetCommandLineArgs().Length > 1)
+            {
+                Expression.Text = Environment.GetCommandLineArgs()[1];
+                Analyzer.Expression = Expression.Text;
+                Result.Text = Analyzer.Estimate();
+            }
         }
 
         private void OpenBracket_Click(object sender, EventArgs e)
@@ -43,6 +49,7 @@ namespace Calc
         private void C_Click(object sender, EventArgs e)
         {
             Expression.Text = "";
+            Result.Text = "";
         }
 
         private void numberButton_Click(object sender, EventArgs e)

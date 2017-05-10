@@ -93,7 +93,7 @@ namespace AnalyzerClass
                                     return false;
                                 }
                                 if (i != 0)
-                                    if ("0123456789".Contains(Expression[i - 1]))
+                                    if ("0123456789)".Contains(Expression[i - 1]))
                                     {
                                         ShowMessage = true;
                                         Expression = "Error 03";
