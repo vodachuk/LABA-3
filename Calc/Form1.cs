@@ -83,8 +83,19 @@ namespace Calc
 
         private void Calculate_Click(object sender, EventArgs e)
         {
-            Analyzer.Expression = Expression.Text;
-            Result.Text = Analyzer.Estimate();
+            try
+            {
+                Analyzer.Expression = Expression.Text;
+                Result.Text = Analyzer.Estimate();
+            }
+            catch (InvalidOperationException exception)
+            {
+                Result.Text = exception.Message;
+            }
+            catch (Exception exception)
+            {
+                Result.Text = "Error";
+            }
         }
 
         private void Calculator_KeyDown(object sender, KeyEventArgs e)
