@@ -142,6 +142,7 @@
             this.Expression.Size = new System.Drawing.Size(185, 20);
             this.Expression.TabIndex = 1;
             this.Expression.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Calculator_KeyDown);
+            this.Expression.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Expression_KeyPress);
             // 
             // Result
             // 

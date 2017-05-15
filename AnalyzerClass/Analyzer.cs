@@ -241,6 +241,7 @@ namespace AnalyzerClass
                                 {
                                     ShowMessage = true;
                                     Expression = MathLibrary.lastError;
+                                    
                                     return Expression;
                                 }
                                 break;
@@ -253,6 +254,7 @@ namespace AnalyzerClass
                                 {
                                     ShowMessage = true;
                                     Expression = MathLibrary.lastError;
+                                    MathLibrary.lastError = "";
                                     return Expression;
                                 }
                                 break;
@@ -265,6 +267,7 @@ namespace AnalyzerClass
                                 {
                                     ShowMessage = true;
                                     Expression = MathLibrary.lastError;
+                                    MathLibrary.lastError = "";
                                     return Expression;
                                 }
                                 break;
@@ -276,6 +279,7 @@ namespace AnalyzerClass
                                 {
                                     ShowMessage = true;
                                     Expression = MathLibrary.lastError;
+
                                     return Expression;
                                 }
                                 break;

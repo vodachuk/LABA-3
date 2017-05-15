@@ -77,7 +77,8 @@ namespace CalcClass
                 _lastError = "Error 09";
                 result = 0;
             }
-            return result;
+              
+                return result;
         }
         public static int Mod(long a, long b)
         {

@@ -50,6 +50,7 @@ namespace Calc
         {
             Expression.Text = "";
             Result.Text = "";
+            
         }
 
         private void numberButton_Click(object sender, EventArgs e)
@@ -91,7 +92,12 @@ namespace Calc
             catch (InvalidOperationException exception)
             {
                 Result.Text = exception.Message;
+                //  Result.Text = "Error ";
             }
+            //catch (DivideByZeroException)
+            //{
+            //    Result.Text = "Error 09";
+            //}
             catch (Exception exception)
             {
                 Result.Text = "Error";
@@ -146,6 +152,22 @@ namespace Calc
                 }
             }
             _checkExp = Expression.Text;
+        }
+
+        private void Expression_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                {
+               // e.Handled = true;
+                Result.Text = "Error 03";
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+
+            {
+                e.Handled = true;
+               // Result.Text = "Error 03";
+            }
         }
     }
 }
